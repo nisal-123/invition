@@ -1,0 +1,100 @@
+*{box-sizing:border-box}
+:root{--gold:#d8b16b;--gold-light:#f2d79c;--gold-deep:#8e642d;--navy:#050b12;--ink:#07101a}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:var(--navy);color:var(--gold-light);font-family:"Cormorant Garamond",serif;overflow-x:hidden}
+button{font:inherit}
+.ambient{position:fixed;inset:0;z-index:0;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#10202b 0%,#07111b 52%,#02060b 100%)}
+#particles{position:absolute;inset:0;width:100%;height:100%;opacity:.8}
+.vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse,transparent 40%,rgba(0,0,0,.62) 100%)}
+.ornament{position:absolute;width:370px;height:370px;opacity:.32;pointer-events:none;background-repeat:no-repeat;background-size:contain;filter:sepia(1) saturate(1.4)}
+.ornament:before,.ornament:after{content:"";position:absolute;border:1px solid var(--gold);border-radius:50%;transform:rotate(35deg)}
+.ornament:before{width:260px;height:130px;top:15px;left:30px}
+.ornament:after{width:170px;height:270px;top:10px;left:70px}
+.ornament-top{right:-110px;top:-140px;transform:rotate(25deg)}
+.ornament-bottom{left:-150px;bottom:-170px;transform:rotate(205deg)}
+main{position:relative;z-index:1;min-height:100vh}
+.welcome-screen{min-height:100svh;display:grid;place-items:center;padding:28px 18px}
+.welcome-frame{width:min(100%,620px);min-height: min(850px, calc(100svh - 44px));padding:36px 26px 28px;border:1px solid rgba(216,177,107,.72);outline:1px solid rgba(216,177,107,.22);outline-offset:7px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;background:linear-gradient(145deg,rgba(3,10,17,.84),rgba(7,18,27,.72));box-shadow:0 25px 90px #0009,inset 0 0 50px #c08a3220}
+.welcome-frame:before,.welcome-frame:after{content:"✧";position:absolute;color:var(--gold);font-size:28px}
+.welcome-frame:before{top:9px;left:13px}.welcome-frame:after{right:13px;bottom:9px}
+.logo-row{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:15px}
+.logo{width:86px;height:86px;object-fit:contain;border-radius:50%;background:#f7f5ed;box-shadow:0 0 0 2px var(--gold),0 0 24px #d8b16b55}
+.bizcon-logo{width:91px;height:91px}
+.mini-divider,.ornamental-rule{width:min(300px,75%);height:22px;display:flex;align-items:center;justify-content:center;margin:3px auto 22px;color:var(--gold)}
+.mini-divider:before,.mini-divider:after,.ornamental-rule:before,.ornamental-rule:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.mini-divider span{padding:0 12px;font-size:21px}
+.eyebrow{font-size:11px;letter-spacing:.32em;color:#caa66a;margin:8px 0 10px}
+.welcome-title{font-family:"Playfair Display",serif;font-weight:400;font-size:clamp(38px,8vw,62px);line-height:1.08;margin:0;color:#f0d59b;text-shadow:0 2px 22px #d8b16b30}
+.welcome-title em{font-family:"Great Vibes",cursive;font-size:1.2em;font-weight:400}
+.welcome-copy{font-size:18px;color:#d2bd97;margin:16px 0 0}
+.envelope-wrap{position:relative;width:min(310px,82vw);height:190px;margin:28px auto 22px;perspective:1000px;cursor:pointer}
+.envelope-glow{position:absolute;inset:25px 15px;background:#e4b75e;filter:blur(42px);opacity:.16;border-radius:50%}
+.envelope{position:absolute;inset:30px 0 0;height:150px;filter:drop-shadow(0 18px 18px #0009);transform-style:preserve-3d}
+.envelope-back{position:absolute;inset:0;background:linear-gradient(145deg,#8a642f,#d7b16e 45%,#745025);border:1px solid #f1d99e}
+.envelope-front{position:absolute;inset:0;background:linear-gradient(145deg,#a67b3e,#d8b36e 50%,#89622f);clip-path:polygon(0 0,50% 62%,100% 0,100% 100%,0 100%);z-index:3}
+.envelope-flap{position:absolute;inset:0;background:linear-gradient(150deg,#f0d394,#a77a3e);clip-path:polygon(0 0,100% 0,50% 68%);transform-origin:top;z-index:4;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.wax-seal{position:absolute;z-index:5;left:50%;top:57%;transform:translate(-50%,-50%);width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#f4d99b,#9b6429 75%);color:#33200d;border:1px solid #f7dfa9;box-shadow:0 2px 12px #0008;font-family:"Playfair Display",serif;font-size:22px}
+.letter-peek{position:absolute;z-index:2;left:12%;right:12%;top:0;height:130px;background:#f3e5c5;color:#805c2c;border:1px solid #c69b56;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 25px #0008;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.letter-peek span{font-family:"Great Vibes",cursive;font-size:31px}.letter-peek small{letter-spacing:.2em;font-size:9px}
+.envelope-wrap.open .envelope-flap{transform:rotateX(180deg);z-index:1}
+.envelope-wrap.open .letter-peek{transform:translateY(-105px)}
+.open-button{border:1px solid var(--gold);background:linear-gradient(110deg,#6d4b20,#d8b16b,#805a29);color:#fff4d8;padding:14px 28px;letter-spacing:.2em;font-size:12px;cursor:pointer;box-shadow:0 0 22px #d8b16b35;transition:transform .25s,box-shadow .25s}
+.open-button:hover{transform:translateY(-3px);box-shadow:0 0 32px #d8b16b70}
+.open-button b{margin-left:14px}.hint{font-size:9px;letter-spacing:.25em;color:#92784f;margin-top:13px}
+.invitation-screen{min-height:100svh;padding:36px 16px 60px;display:flex;flex-direction:column;align-items:center}
+.hidden{display:none}
+.top-actions{width:min(100%,760px);display:flex;justify-content:flex-end;margin-bottom:12px}
+.music-button,.replay-button{display:flex;align-items:center;gap:10px;background:#07111bd9;border:1px solid #98723f;color:#d9bd86;padding:10px 14px;letter-spacing:.13em;font-size:10px;cursor:pointer}
+.music-bars{height:15px;display:flex;align-items:center;gap:2px}
+.music-bars i{width:2px;height:5px;background:var(--gold);display:block}
+.music-button.playing .music-bars i{animation:equalize .65s ease-in-out infinite alternate}
+.music-bars i:nth-child(2){animation-delay:.2s}.music-bars i:nth-child(3){animation-delay:.4s}.music-bars i:nth-child(4){animation-delay:.1s}
+@keyframes equalize{to{height:15px}}
+.invitation-card{width:min(100%,680px);padding:13px;background:linear-gradient(145deg,#d6b578,#78552d 45%,#e3c58d);box-shadow:0 30px 90px #000a,0 0 50px #d5a95720;opacity:0;transform:translateY(35px) scale(.96)}
+.card-inner{position:relative;text-align:center;min-height:820px;padding:28px clamp(18px,5vw,48px) 30px;background:radial-gradient(ellipse at top,#0c1a26,#030a11 68%);border:1px solid #e1bd7b;outline:1px solid #6f512b;outline-offset:-7px;overflow:hidden}
+.card-inner:before,.card-inner:after{content:"";position:absolute;left:15px;right:15px;height:1px;background:linear-gradient(90deg,transparent,#caa15d,transparent)}
+.card-inner:before{top:15px}.card-inner:after{bottom:15px}
+.card-logos{display:flex;justify-content:center;align-items:center;gap:17px;margin-bottom:12px}
+.card-logos img{width:76px;height:76px;object-fit:contain;border-radius:50%;background:#f7f3e8;box-shadow:0 0 0 2px #c99c50}
+.ornamental-rule{margin:8px auto 5px}.ornamental-rule span{padding:0 10px;font-size:18px}
+.script-title{font-family:"Great Vibes",cursive;font-size:clamp(48px,8vw,66px);color:#e5c17e;margin:0 0 20px;text-shadow:0 0 18px #d7a95b35}
+.content-block h2,.meeting-title{font-family:"Playfair Display",serif;font-size:clamp(16px,3.2vw,22px);line-height:1.35;font-weight:700;color:#e3c17f;margin:0}
+.content-block h2 em{font-style:italic}
+.of{font-size:24px;margin:9px 0 12px}
+.content-block h3{font-family:"Playfair Display",serif;font-size:clamp(14px,2.7vw,19px);font-weight:500;margin:0;color:#e3c17f}
+.university-name{font-size:21px;font-weight:700;margin:3px 0 18px}
+.honour{font-size:20px;margin:0 0 13px}
+.guest-name{font-family:"Great Vibes",cursive;font-size:clamp(35px,7vw,48px);color:#f1d69b;margin:0 0 5px}
+.to,.at{font-size:22px;margin:5px 0 10px}
+.meeting-title{font-size:clamp(20px,4vw,27px);margin:0 0 22px}
+.event-details{display:flex;align-items:center;justify-content:center;width:min(100%,470px);margin:0 auto 15px;border-top:1px solid #b38b4d;border-bottom:1px solid #b38b4d;padding:12px 0}
+.date-detail{display:flex;flex-direction:column;gap:7px;flex:1;border-right:1px solid #b38b4d;padding:5px 12px}
+.weekday{font-size:17px;letter-spacing:.17em}.date{font-size:17px}
+.time-detail{flex:1;display:flex;align-items:baseline;justify-content:center;gap:5px}
+.time{font-size:30px;letter-spacing:.12em}.period{font-size:15px;letter-spacing:.1em}
+.at{margin:14px 0 9px}
+.venue{font-size:clamp(17px,3.5vw,23px);font-style:italic;font-weight:600;margin:0 0 8px}
+.closing{font-size:21px;margin:0;color:#e3c17f}
+.bottom-rule{margin:18px auto 0}
+.reveal{opacity:0;transform:translateY(18px)}
+.final-message{text-align:center;margin:55px 10px 15px;opacity:0;transform:translateY(25px)}
+.final-message p{font-size:12px;letter-spacing:.22em;color:#d6b779;margin:5px}
+.final-message h2{font-family:"Great Vibes",cursive;font-size:clamp(48px,9vw,70px);font-weight:400;color:#f1d69b;margin:8px 0;text-shadow:0 0 25px #d7a95b55}
+.final-star{font-size:24px;color:#d8b16b}
+.replay-button{margin:10px auto 0}
+@media(max-width:520px){
+ .welcome-frame{padding:25px 18px;min-height:calc(100svh - 36px)}
+ .logo{width:72px;height:72px}.bizcon-logo{width:76px;height:76px}
+ .welcome-copy{font-size:16px}.envelope-wrap{margin:23px auto 18px;height:175px}
+ .invitation-screen{padding:18px 9px 42px}
+ .invitation-card{padding:8px}
+ .card-inner{min-height:0;padding:24px 15px 26px}
+ .card-logos img{width:61px;height:61px}
+ .university-name{font-size:18px}
+ .honour{font-size:17px}
+ .date-detail{padding:5px 6px}.weekday,.date{font-size:13px}
+ .time{font-size:25px}.period{font-size:13px}
+ .closing{font-size:18px}
+ .final-message{margin-top:42px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}

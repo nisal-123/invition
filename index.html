@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050b12">
+  <meta name="description" content="A special digital invitation to the BIZCON Annual General Meeting 2026.">
+  <title>BIZCON | Annual General Meeting 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="ornament ornament-top"></div>
+    <div class="ornament ornament-bottom"></div>
+    <canvas id="particles"></canvas>
+    <div class="vignette"></div>
+  </div>
+
+  <main>
+    <section class="welcome-screen" id="welcome">
+      <div class="welcome-frame">
+        <div class="logo-row">
+          <img src="assets/university-logo.png" alt="University logo" class="logo">
+          <img src="assets/bizcon-logo.png" alt="BIZCON logo" class="logo bizcon-logo">
+        </div>
+        <div class="mini-divider"><span>✧</span></div>
+        <p class="eyebrow">A SPECIAL INVITATION FOR YOU</p>
+        <h1 class="welcome-title">An Occasion<br><em>to Remember</em></h1>
+        <p class="welcome-copy">You are cordially invited to join us for a special gathering.</p>
+
+        <div class="envelope-wrap" id="envelopeWrap" aria-label="Invitation envelope">
+          <div class="envelope-glow"></div>
+          <div class="letter-peek"><span>INVITATION</span><small>BIZCON • 2026</small></div>
+          <div class="envelope">
+            <div class="envelope-back"></div>
+            <div class="envelope-front"></div>
+            <div class="envelope-flap"></div>
+            <div class="wax-seal">B</div>
+          </div>
+        </div>
+
+        <button class="open-button" id="openButton" type="button">
+          <span>OPEN INVITATION</span><b>✦</b>
+        </button>
+        <p class="hint">TAP TO UNSEAL YOUR INVITATION</p>
+      </div>
+    </section>
+
+    <section class="invitation-screen hidden" id="invitation" aria-label="Invitation card">
+      <div class="top-actions">
+        <button class="music-button" id="musicButton" type="button" aria-label="Toggle background music">
+          <span class="music-bars"><i></i><i></i><i></i><i></i></span>
+          <span id="musicLabel">MUSIC OFF</span>
+        </button>
+      </div>
+
+      <article class="invitation-card" id="invitationCard">
+        <div class="card-inner">
+          <div class="card-logos">
+            <img src="assets/university-logo.png" alt="University logo">
+            <img src="assets/bizcon-logo.png" alt="BIZCON logo">
+          </div>
+          <div class="ornamental-rule"><span>❧ ❖ ❧</span></div>
+          <p class="script-title reveal">Invitation</p>
+
+          <div class="reveal content-block">
+            <h2>THE BUSINESS ECONOMICS STUDENTS'<br>ASSOCIATION <em>(BIZCON)</em></h2>
+            <p class="of">OF</p>
+            <h3>THE DEPARTMENT OF BUSINESS ECONOMICS</h3>
+            <p class="university-name">University of Sri Jayawardenepura</p>
+            <p class="honour">ARE HONOURED TO INVITE</p>
+          </div>
+
+          <div class="guest-name reveal">Deepika Dilrukshi</div>
+          <p class="to reveal">TO</p>
+          <h2 class="meeting-title reveal">THE ANNUAL GENERAL<br>MEETING 2026</h2>
+
+          <div class="event-details reveal">
+            <div class="date-detail">
+              <span class="weekday">WEDNESDAY</span>
+              <span class="date">14TH JANUARY 2026</span>
+            </div>
+            <div class="time-detail">
+              <span class="time">12.00</span>
+              <span class="period">P.M.</span>
+            </div>
+          </div>
+
+          <p class="at reveal">AT</p>
+          <p class="venue reveal">E111 HALL, NEW FACULTY BUILDING</p>
+          <p class="closing reveal">We are looking forward to your presence!</p>
+          <div class="ornamental-rule bottom-rule"><span>❧ ❖ ❧</span></div>
+        </div>
+      </article>
+
+      <section class="final-message" id="finalMessage">
+        <p>WE LOOK FORWARD TO CELEBRATING</p>
+        <p>THIS SPECIAL OCCASION WITH YOU!</p>
+        <h2>Thank You</h2>
+        <span class="final-star">✧</span>
+      </section>
+      <button class="replay-button" id="replayButton" type="button">↻ &nbsp; REPLAY INVITATION</button>
+    </section>
+  </main>
+
+  <audio id="backgroundMusic" src="invitation-music.mp3" loop preload="none"></audio>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
